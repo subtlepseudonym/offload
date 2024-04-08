@@ -1,3 +1,7 @@
+a {
+  white-space: nowrap;
+}
+
 body {
   /* color: #777; */
   margin: 2em;
