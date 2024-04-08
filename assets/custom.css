@@ -4,7 +4,7 @@ a {
 
 body {
   /* color: #777; */
-  margin: 2em;
+  margin: 2em 2em 0em 2em;
   background: #f0f0f0;
   display: flex;
   gap: 2rem;
@@ -67,7 +67,6 @@ The content `<div>` is where all your content goes.
 .content {
   margin: 0 auto;
   padding: 0 2em;
-  margin-bottom: 50px;
   line-height: 1.6em;
 }
 
