@@ -12,8 +12,14 @@ import (
 	"time"
 )
 
+var (
+	Version   = "0.1.0"
+	Revision  = "unknown"
+	BuildTags = ""
+)
+
 const (
-	DefaultPort = 9494
+	DefaultPort          = 9494
 	DefaultListDirectory = "lists"
 )
 
@@ -22,7 +28,7 @@ var (
 	listBuffer map[string]map[string]struct{}
 	updateChan = make(chan struct{}, 2)
 
-	listTemplate *template.Template
+	listTemplate  *template.Template
 	indexTemplate *template.Template
 )
 
@@ -34,6 +40,7 @@ type TemplateContext struct {
 
 func okHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(fmt.Sprintf(`{"version": %q, "revision": %q, "buildTags": %q}`, Version, Revision, BuildTags)))
 }
 
 func listHandler(w http.ResponseWriter, r *http.Request) {
