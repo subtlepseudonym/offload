@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Offload</title>
+
+    <link rel="stylesheet" href="/asset/pure-min.css" />
+    <link rel="stylesheet" href="/asset/checkbox.css" />
+    <link rel="stylesheet" href="/asset/custom.css" />
+  </head>
+
+  <body>
+    <div id="layout">
+      <!-- Menu toggle -->
+      <a href="#menu" id="menuLink" class="menu-link">
+          <!-- Hamburger icon -->
+          <span></span>
+      </a>
+
+      <div id="menu">
+        <div class="pure-menu">
+          <a class="pure-menu-heading" href="/">Offload</a>
+          <ul class="pure-menu-list">
+            {{- range .Lists }}
+              <li class="pure-menu-item"><a href="/list/{{.}}" class="pure-menu-link">{{ . }}</a></li>
+            {{- end }}
+          </ul>
+        </div>
+      </div>
+
+      <div id="main">
+        <div class="content">
+          <form class="pure-form" method="post">
+            <div class="pure-g">
+              {{- range .Lists }}
+                <div class="pure-u-1-8"></div>
+                <div class="pure-u-3-4 list-item">
+                  <label class="checkbox-label form-control">
+                    <a href="/list/{{.}}">{{ . }}</a>
+                  </label>
+                </div>
+                <div class="pure-u-1-8"></div>
+              {{- end }}
+            </div>
+
+            <div class="pure-g footer">
+              <input type="text" name="add" class="pure-u-4-5" />
+              <button type="submit" class="pure-button pure-button-primary pure-u-1-5">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/asset/list-ui.js"></script>
+  </body>
+</html>
