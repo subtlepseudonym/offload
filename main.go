@@ -184,7 +184,13 @@ func updateFiles(listDirectory string, buffer map[string]map[string]struct{}) er
 			return fmt.Errorf("create list file: %w", err)
 		}
 
+		var items []string
 		for item := range list {
+			items = append(items, item)
+		}
+		sort.Strings(items)
+
+		for _, item := range items {
 			fmt.Fprintln(f, item)
 		}
 
